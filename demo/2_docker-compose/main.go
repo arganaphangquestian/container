@@ -16,7 +16,7 @@ var port string
 func main() {
 	port = os.Getenv("PORT")
 	if port == "" {
-		port = "8080"
+		port = "8000"
 	}
 
 	db, err := pgx.Connect(context.Background(), "postgres://user:password@todo_database:5432/todos?sslmode=disable")
