@@ -1,0 +1,22 @@
+version: '3'
+services:
+  app:
+    container_name: todo_app
+    build: 
+      context: ./
+      dockerfile: ./Dockerfile
+    ports:
+      - 8000:8080
+    depends_on:
+      - postgres
+  postgres:
+    image: postgres:alpine
+    container_name: todo_database
+    volumes:
+      - ./schema.sql:/docker-entrypoint-initdb.d/1.sql
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: "todos"
+      POSTGRES_USER: "user"
+      POSTGRES_PASSWORD: "password"

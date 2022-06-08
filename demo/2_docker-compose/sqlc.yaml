@@ -1,0 +1,8 @@
+version: 1
+packages:
+  - path: "data"
+    name: "data"
+    sql_package: "pgx/v4"
+    engine: "postgresql"
+    schema: "schema.sql"
+    queries: "query.sql"
